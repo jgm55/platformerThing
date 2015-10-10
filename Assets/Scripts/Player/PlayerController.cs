@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
         renderer = gameObject.GetComponent<SpriteRenderer>();
-        this.turnRed();
+        this.changeColor(Color.red);
         startPos = this.transform.position;
 	}
 	
@@ -108,22 +108,9 @@ public class PlayerController : MonoBehaviour {
         walkingDirection = (int)(xAxisAmount / Mathf.Abs(xAxisAmount));
     }
 
-    public void turnBlue()
-    {
-        renderer.color = Color.blue;
-        TellPlatformsColorChanged(Color.blue);
-    }
-
-    public void turnRed()
-    {
-        renderer.color = Color.red;
-        TellPlatformsColorChanged(Color.red);
-    }
-
-    public void turnYellow()
-    {
-        renderer.color = Color.yellow;
-        TellPlatformsColorChanged(Color.yellow);
+    public void changeColor(Color color) {
+        renderer.color = color;
+        TellPlatformsColorChanged(color);
     }
 
     private void TellPlatformsColorChanged(Color c)

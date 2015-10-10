@@ -27,8 +27,7 @@ public class InputController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Get Actions/ input
-        if (GamePad.GetState(playerIndex).IsConnected)
-        {
+        if (GamePad.GetState(playerIndex).IsConnected) {
             prevState = state;
             state = GamePad.GetState(playerIndex);
             // Detect if a button was pressed this frame
@@ -49,17 +48,22 @@ public class InputController : MonoBehaviour {
 
             if (prevState.Buttons.B == ButtonState.Released && state.Buttons.B == ButtonState.Pressed)
             {
-                player.turnRed();
+                player.changeColor(Color.red);
             }
 
             if (prevState.Buttons.X == ButtonState.Released && state.Buttons.X == ButtonState.Pressed)
             {
-                player.turnBlue();
+                player.changeColor(Color.blue);
             }
 
             if (prevState.Buttons.Y == ButtonState.Released && state.Buttons.Y == ButtonState.Pressed)
             {
-                player.turnYellow();
+                player.changeColor(Color.yellow);
+            }
+
+            if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed)
+            {
+                player.changeColor(Color.green);
             }
 
             if (prevState.Buttons.Start == ButtonState.Released && state.Buttons.Start == ButtonState.Pressed)
